@@ -1,7 +1,11 @@
+# Abrimos o documento e lemos todas as informações
 sentilexpt = open("SentiLex-lem-PT01.txt", 'r')
-dic_palavra_polaridade = {}
+
+# Criamos um dicionário para receber as informações
+dic_palavra_polaridade = {} 
+
 # Neste trecho atribuímos a cada palavra uma Polaridade
-for i in sentilexpt.readlines():
+for i in sentilexpt.readlines(): 
     pos_ponto = i.find('.')
     palavra = (i[:pos_ponto])
     pol_pos = i.find('POL')
@@ -21,14 +25,16 @@ def Pontuação_sentimento(frase):
 
     pontuacao = sum(l_sentimento)
     if pontuacao > 0:
-        return 'Positivo, Score: {}'.format(pontuacao)
+        return 'Positivo, Pontuação: {}'.format(pontuacao)
     elif pontuacao == 0:
-        return 'Neutro, Score{}'.format(pontuacao)
+        return 'Neutro, Pontuação:{}'.format(pontuacao)
     elif pontuacao < 0:
-        return 'Negativo, Score{}'.format(pontuacao)
+        return 'Negativo, Pontuação:{}'.format(pontuacao)
 
 
-Pontuação_sentimento('Eu estou muito feliz hoje, porém, triste com a politica')
+frase = Pontuação_sentimento('Eu estou muito feliz hoje, porém, triste com a politica')
+print(Pontuação_sentimento(frase))
 
-#dic_palavra_polaridade.get(‘feliz’)
-#dic_palavra_polaridade.get(‘triste’)
+# Consultar polaridades 
+#dic_palavra_polaridade.get('feliz')
+#dic_palavra_polaridade.get('triste')
